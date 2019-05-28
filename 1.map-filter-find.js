@@ -1,4 +1,5 @@
 const getPokeNames = (pokemons) => {
+    console.log(pokemons.map(pokemon => pokemon.name))
     return pokemons.map(pokemon => pokemon.name)
 }
 
