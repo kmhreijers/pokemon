@@ -7,8 +7,10 @@ const {
     getTrainersPokemons,
     getGymLeader,
     getBigGyms,
-    getRarestGym
-} = require('./3.data-mining');
+    getRarestGym,
+    getBigTeam,
+    categorizePokemonsByRarity
+
 
 test('getGymleader: gets the gymleader belonging to a gym', () => {
     const fuchsiaCity = gyms.find(gym => gym.city === 'Fuchsia City')
@@ -64,7 +66,13 @@ test('getBigGyms: gets the city names with gym leaders who have 4 pokemons or mo
     ])
 })
 
-test('getRarestGym: gets the gym with the most legendary pokemon', () => {
+test('getBigTeam: returns the trainers with more than 4 pokemon', () => {
+    const bigTeams = getBigTeam(trainers)
+    expect(bigTeams).toEqual([
+    ])
+})
+
+test.only('getRarestGym: gets the gym with the most legendary pokemon', () => {
     const rarestGym = getRarestGym(gyms, trainers, pokemons)
     expect(rarestGym).toEqual({ id: 1, city: 'Saffron City', trainerId: 2 })
 })
